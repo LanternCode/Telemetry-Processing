@@ -1,0 +1,11 @@
+{% extends 'banner.html.twig' %}
+{% block content %}
+  <div id="lg-form-container">
+  <h2>{{ page_heading_2 }}</h2>
+  <p>{{ page_text }}</p>
+    <p>Conversion calculatation required was  <b>{{ conversion_type_text }}</b></p>
+    <p>Temperature to calculate was <b>{{ temperature }} degrees {{ fromunit }}</b></p>
+    <p>Resulting temperature is <b>{{ result }} degrees {{ tounit }}</b></p>
+    <p class="curr_page"><a href="{{ landing_page }}">Another go</a></p>
+  </div>
+{% endblock %}
