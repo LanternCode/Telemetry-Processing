@@ -1,0 +1,20 @@
+{% extends 'banner.html.twig' %}
+{% block content %}
+    <div id="lg-form-container">
+        <h2>{{ page_heading_2 }}</h2>
+        <p>{{ page_text }}</p>
+        {% for single_data_array in telemetry %}
+            <div>
+                <h2>Telemetry Data no. {{ loop.index }}</h2>
+                <p>The fan is rotating: <b>{{ single_data_array['cleaned_fan'] }}</b></p>
+                <p>The heater temperature is: <b>{{ single_data_array['cleaned_temperature'] }} Degree Celsius</b></p>
+                <p>Last number on the keypad is: <b>{{ single_data_array['cleaned_keypad'] }}</b></p>
+                {% for switch in single_data_array['cleaned_switches'] %}
+                    <p>Switch {{ loop.index }}: {{ switch }}</p>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <p class="curr_page"><a href="{{ landing_page }}">Another go</a></p>
+    </div>
+{% endblock %}
