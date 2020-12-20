@@ -1,5 +1,7 @@
 DROP TABLE IF EXISTS `messages`;
 
+GRANT SELECT, INSERT, UPDATE, DELETE, DROP ON coursework.* TO user@localhost IDENTIFIED BY'password';
+
 CREATE TABLE `messages` (
   `message_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `switch_01` BOOLEAN NOT NULL,
