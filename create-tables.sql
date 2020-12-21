@@ -22,3 +22,11 @@ INSERT INTO messages
 VALUES
 (false, false, false, true , 411, 0, 'reverse'),
 (false, false, false, false , 51, 3, 'forward');
+
+CREATE TABLE users ( 
+  id INT NOT NULL AUTO_INCREMENT , 
+  password VARCHAR(255) NOT NULL , 
+  email VARCHAR(50) NOT NULL , 
+  passwordresetkey VARCHAR(255) NOT NULL 
+  , createdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+  PRIMARY KEY (id)) ENGINE = MyISAM;
