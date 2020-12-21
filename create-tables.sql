@@ -8,7 +8,7 @@ CREATE TABLE `messages` (
   `switch_02` BOOLEAN ,
   `switch_03` BOOLEAN ,
   `switch_04` BOOLEAN ,
-  `heater` decimal(10) NOT NULL,
+  `heater` float(10) ,
   `keypad` int(1),
   `fan` varchar(7) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
