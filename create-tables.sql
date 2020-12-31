@@ -16,14 +16,14 @@ CREATE TABLE `messages` (
   PRIMARY KEY(`message_id`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-//Inserting
-
-
 CREATE TABLE users ( 
   id INT NOT NULL AUTO_INCREMENT , 
   password VARCHAR(255) NOT NULL , 
   email VARCHAR(50) NOT NULL , 
   passwordresetkey VARCHAR(255),
   role VARCHAR(15) NOT NULL,
+  barred BOOLEAN NOT NULL DEFAULT false,
   createdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)) ENGINE = MyISAM;
+
+               
