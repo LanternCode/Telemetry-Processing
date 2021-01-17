@@ -1,77 +1,151 @@
-html {margin:0;padding:0;border:0;}
+html {margin:0;padding:0;border:0;height: 100%}
 
 body {
-    background-color:transparent;
-    background-image:url('../media/gradient-background.jpg');
-    background-size: cover;
+
     font-family:"Roboto Thin", sans-serif;
-    font-size:12pt;}
+    font-size:12pt;
+    min-height: 100vh;
+    }
+.background{
+    background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw !important;
+    color: white;
+
+
+}
+.hidden{
+    display: none !important;
+}
 
 /***********************************************/
 /* banner                                      */
 /***********************************************/
-#banner-div{
+.navbar{
+    background-color: black;
+    box-shadow: 0 0 20px black;
+
+}
+.nav-link{
     color: white;
 }
+.navbar-brand{
+    color: white;
+    display: flex;
+    float: right;
+}
+.navbar-user{
+    font-size: 0.8rem !important;
+
+}
+navbar-toggler-icon{color: white}
+/***********************************************/
+/* homepage                                 */
+/***********************************************/
+#homepage-div{
+    text-align: center;
+    color: white;
+}
+
 /***********************************************/
 /* buttons                                     */
 /***********************************************/
-.button-form {
 
-    height: 25px;
+.button-small, .button-medium, .button-large{
     width: auto;
     background-color: rgba(0,0,0,0.5);
-    border-radius: 15px;
+    border-radius: 5px;
     color: white;
     box-shadow: 0 0 10px black ;
 }
-.button-form:hover {
+.button-small:hover, .button-medium:hover, .button-large:hover{
     background-color: rgba(222,222,222,0.2);
     transition: 0.5s;
     cursor: pointer;
 }
-.btn-download-data{
+.button-small{
+    margin-top: 1%;
+    height: 30px !important;
+}
+
+.button-medium{
+    margin-top: 3%;
+    height: 50px !important;
+}
+.button-large{
     margin-top: 5%;
     height: 75px !important;
 }
 /***********************************************/
 /* download messages section                   */
 /***********************************************/
-#row-downloaded{
-    width: 100%;
-}
 .col{
     margin-bottom: 20px;
-
+    max-width: 240px !important;
 }
 .card-message{
-    height: 250px;
+    height: 320px;
+    width: 220px;
+    color: black;
 }
 
+#grid-download-data{
+    padding: 75px;
+    width: 70%;
+    margin: auto;
+}
+#no-messages-div{
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    padding-top:25px;
+}
 /***********************************************/
-/* link styles                                 */
+/* login/register section                      */
 /***********************************************/
-a:link {color:#041EDE;background-color:transparent;}
-a:hover {color:#FF00FF;background-color:transparent;}
-a:visited {color:#FE482A;background-color:transparent;}
 
+.page-heading{
+    text-align: left;
+    color: white;
+    padding-left: 5%;
+}
+.form-wrapper, .forgottenPassword-wrapper, .register-wrapper, .management-wrapper{
+    text-align: left;
+    padding-left: 5%;
+    padding-top: 5%;
+    color: white;
+    min-height: calc(100vh - 70px);
+}
 /***********************************************/
-/* division styles                             */
+/* admin section                               */
 /***********************************************/
-#banner-div {text-align:center;}
-#page-content-div {border: none;
-text-align: center}
-#clear-div {clear:both;}
-#left-div {float:left;width:20%;}
-#right-div {float:right;width:80%;}
+#management-table tr, #user-logs tr{
+    text-align: center;
+}
+#management-table th, #user-logs th{
+    padding: 20px;
+}
+/***********************************************/
+/* footer                                      */
+/***********************************************/
+footer{
+    box-shadow: 0 0 20px black;
+    top: calc(100% - 80px);
+    width: 100%;
+    height: 100px;
 
-/***********************************************/
-/* paragraph styles                            */
-/***********************************************/
-.cent {text-align:center;}
-.heads {font-family:arial,sans-serif;font-size:1.2em;text-align:left;}
-.curr_page {color:white}
-.result {color:inherit;font-weight:bold;text-shadow:black;}
+}
+.footer-wrapper{
+    height: 100%;
+    padding-top: 15px;
+}
+#creators-div{
+    text-align: center;
+    color: white;
+}
+
 
 
 
