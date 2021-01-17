@@ -20,20 +20,20 @@
                 <td>{{ user['createdate'] }}</td>
                 <td>No responses found</td><!--<td><button>View Responses</button></td> -->
                 {% if user['role'] == "user" %}
-                    <td><a href="promote?accId={{ user['id'] }}" class="button-small">Make admin</a></td>
+                    <td><a href="promote?accId={{ user['id'] }}"><button class="button-small">Make admin</button></a></td>
                 {% elseif user['role'] == "admin" and adminId != user['id'] %}
-                    <td><a href="demote?accId={{ user['id'] }}" class="button-small">Make user</a></td>
+                    <td><a href="demote?accId={{ user['id'] }}"><button class="button-small">Make user</button></a></td>
                 {% else %}
                     <td>Admin</td>
                 {% endif %}
                 {% if user['barred'] == 0 and adminId != user['id'] %}
-                    <td><a href="barAccount?accId={{ user['id'] }}" class="button-small">Bar account</a></td>
+                    <td><a href="barAccount?accId={{ user['id'] }}"><button class="button-small">Bar account</button></a></td>
                 {% elseif adminId != user['id'] %}
-                    <td><a href="freeAccount?accId={{ user['id'] }}" class="button-small">Free account</a></td>
+                    <td><a href="freeAccount?accId={{ user['id'] }}"><button class="button-small">Free account</button></a></td>
                 {% else %}
                     <td>Your account</td>
                 {% endif %}
-                <td><a href="viewLogs?accId={{ user['id'] }}" class="button-small">View activities</a></td>
+                <td><a href="viewLogs?accId={{ user['id'] }}"><button class="button-small">View activities</button></a></td>
             </tr>
         {% endfor %}
     </table>

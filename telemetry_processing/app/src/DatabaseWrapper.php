@@ -275,7 +275,7 @@ class DatabaseWrapper
      *
      * @return string
      */
-    private function getToken($length = 255)
+    public function getToken($length = 255)
     {
         $token = "";
         $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

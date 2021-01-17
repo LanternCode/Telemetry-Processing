@@ -8,12 +8,12 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="{{ base_url() }}">Home</a>
-                <a class="nav-item nav-link" href="login" id="login-nav">Login</a>
-                <a class="nav-item nav-link" href="register" id="register-nav">Register</a>
+                <a class="nav-item nav-link" href="{{ base_url() }}/login" id="login-nav">Login</a>
+                <a class="nav-item nav-link" href="{{ base_url() }}/register" id="register-nav">Register</a>
                 <a class="nav-item nav-link" href="{{ base_url() }}/settings" id="settings-nav">Settings</a>
-                <a class="nav-item nav-link" href="logout" id="logout-nav">Logout</a>
-                <a class="nav-item nav-link" href="admin" id="admin-nav">Admin</a>
-                <a class="nav-item nav-link" href="generatetelemetrydata" id="generate-nav">Generate Data</a>
+                <a class="nav-item nav-link" href="{{ base_url() }}/logout" id="logout-nav">Logout</a>
+                <a class="nav-item nav-link" href="{{ base_url() }}/admin" id="admin-nav">Admin</a>
+                <a class="nav-item nav-link" href="{{ base_url() }}/generatetelemetrydata" id="generate-nav">Generate Data</a>
                 <a href="http://validator.w3.org/check/referer" rel="nofollow" title="Validate as HTML5">
                     <img src="https://www.w3.org/Icons/valid-html401" alt="W3Schools.com" id="W3_validated">
                 </a>
