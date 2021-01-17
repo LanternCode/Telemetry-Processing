@@ -1,0 +1,40 @@
+{% extends 'banner.html.twig' %}
+{% block content %}
+
+    {% if invalid_credentials %}
+
+        {{ "<h4 class='homepage--error'>Entered credentials were incorrect.</h4>" }}
+
+    {% endif %}
+    {% if userHasRegistered %}
+
+        {{ "<h4 class='homepage--registered'>Your account was created! You can log in now!</h4>" }}
+
+    {% endif %}
+    {% if sessionExpired %}
+
+        {{ "<h4 class='homepage--error'>You were inactive for too long, please log in again.</h4>" }}
+
+    {% endif %}
+
+<div class="form-wrapper background">
+    <h3>Login into your account</h3>
+    <div class="login-form">
+        <form method={{ method }} action="{{ action_1 }}">
+
+            <label for="email-login">Email:</label><br />
+            <input type="email" name="account--signin--email" id="email-login" required><br /><br />
+
+            <label for="password-login">Password:</label><br />
+            <input type="password" name="account--signin--password" autocomplete="off" id="password-login" required><br /><br />
+
+            <input type="submit" class="button-small" value="Log in"><br />
+        </form>
+        <br />
+        or
+        <br /><a href="{{ action_2 }}" >Create your account!</a>
+        <br /><a href="{{ action_3 }}">Password forgotten?</a>
+        <br /><a href="{{ base_url() }}">Homepage</a>
+    </div>
+</div>
+{% endblock %}

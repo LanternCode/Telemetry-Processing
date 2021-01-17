@@ -1,0 +1,11 @@
+{% extends 'banner.html.twig' %}
+{% block content %}
+    <div class="background">
+        {% if delete_status == true %}
+            <h4>Your account was deleted. Thank you for using our application.</h4>
+        {% else %}
+            <h4>Something went wrong, please try again.</h4>
+        {% endif %}
+        <a class="button-small" href={{ base_url() }} >Back to homepage</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'banner.html.twig' %}
+{% block content %}
+    <div class="background">
+        {% if free_status == true %}
+            <h4>User's account is no longer barred!</h4>
+        {% else %}
+            <h4>Something went wrong, please try again.</h4>
+        {% endif %}
+        <a class="button-small" href="userManagement" >Back to users</a>
+    </div>
+{% endblock %}

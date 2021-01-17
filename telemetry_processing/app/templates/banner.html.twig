@@ -1,13 +1,66 @@
-{% extends 'layout.html.twig' %}
+{% extends 'footer.html.twig' %}
 {% block title %}{{ page_title }}{% endblock %}
 {% block banner %}
-    <div id="banner-div">
-        <p class="cent">
-            Page last updated on <script type="text/javascript">document.write(document.lastModified)</script>
-            <br />
-            Maintained by Dominik Michalski and Adam Machowczyk
-        </p>
-        <hr class="deepline"/>
-    </div>
-    <div id="clear-div"></div>
+    <nav class="navbar navbar-expand-md">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{{ base_url() }}">Home</a>
+                <a class="nav-item nav-link" href="login" id="login-nav">Login</a>
+                <a class="nav-item nav-link" href="register" id="register-nav">Register</a>
+                <a class="nav-item nav-link" href="{{ base_url() }}/settings" id="settings-nav">Settings</a>
+                <a class="nav-item nav-link" href="logout" id="logout-nav">Logout</a>
+                <a class="nav-item nav-link" href="admin" id="admin-nav">Admin</a>
+                <a class="nav-item nav-link" href="generatetelemetrydata" id="generate-nav">Generate Data</a>
+                <a href="http://validator.w3.org/check/referer" rel="nofollow" title="Validate as HTML5">
+                    <img src="https://www.w3.org/Icons/valid-html401" alt="W3Schools.com" id="W3_validated">
+                </a>
+            </div>
+        </div>
+        <script>
+            hide = (...elements) =>{
+                for (let e of elements){
+               document.getElementById(e).classList.add('hidden');}
+            }
+            show = (...elements) =>{
+                for (let e of elements){
+                document.getElementById(e).classList.remove('hidden')}
+            }
+        </script>
+        {% if session['userRole'] == 'admin' %}
+        <script>
+            show('generate-nav');
+            show('admin-nav');
+        </script>
+        {% else %}
+        <script>
+            hide('generate-nav');
+            hide('admin-nav');
+        </script>
+        {% endif %}
+        {% if session['userLoggedIn'] != 1 %}
+        {% if session['userRole'] == 'admin' %}
+            <script>
+                show('admin-nav');
+            </script>
+        {% else %}
+            <script>
+                hide('admin-nav');
+            </script>
+        {% endif %}
+        <script>
+            hide('logout-nav', 'settings-nav');
+            show('login-nav', 'register-nav');
+        </script>
+            {% else %}
+            <script>
+                show('logout-nav', 'settings-nav');
+                hide('login-nav', 'register-nav');
+            </script>
+        {% endif %}
+        <h4 class="navbar-brand navbar-user"> {{ session['userRole'] }} {{ session['userEmail'] }}</h4>
+        <h4 class="navbar-brand">Telemetry Data Processing App </h4>
+    </nav>
 {% endblock %}

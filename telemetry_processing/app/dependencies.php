@@ -16,7 +16,22 @@ $container['view'] = function ($container) {
     return $view;
 };
 
+$container['DatabaseWrapper'] = function ($container) {
+    $dbWrapper = new \telemetryProcessing\DatabaseWrapper();
+    return $dbWrapper;
+};
+
 $container['telemetryDataValidator'] = function ($container) {
-    $telemetryDataValidator = new \telemetryProcessing\telemetryDataValidator();
+    $telemetryDataValidator = new \telemetryProcessing\TelemetryDataValidator();
     return $telemetryDataValidator;
+};
+
+$container['telemetryDataDownloader'] = function ($container) {
+    $telemetryDataDownloader = new \telemetryProcessing\TelemetryDataDownloader();
+    return $telemetryDataDownloader;
+};
+
+$container['telemetryDataParser'] = function ($container) {
+    $telemetryDataParser = new \telemetryProcessing\TelemetryDataParser();
+    return $telemetryDataParser;
 };

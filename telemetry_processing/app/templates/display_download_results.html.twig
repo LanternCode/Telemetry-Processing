@@ -1,62 +1,42 @@
 {% extends 'banner.html.twig' %}
 {% block content %}
-    <div class="container" id="grid-wrapper">
+    <div class="container background" id="grid-wrapper">
+        {% if telemetry|length <1 %}
+        <div id="no-messages-div">
+            <h3>No messages available, press a refresh button and try again</h3>
+            <form action="{{ action }}">
+                <input class="button-medium" type="submit" value="Refresh" onclick="location.reload()">
+            </form>
+        </div>
+
+        {% else %}
         <div id="grid-download-data">
             <div class="row" id="row-downloaded">
-
+                {% for i in telemetry %}
                 <div class="col">
                     <div class="card card-message" >
                         <div class="card-body">
-                            <h5 class="card-title">Message ID</h5>
+                            <h5 class="card-title">Message ID: {{ loop.index  }} </h5>
                             <ul>
-                                <li>Switch 1:</li>
-                                <li>Switch 2:</li>
-                                <li>Switch 3:</li>
-                                <li>Switch 4:</li>
-                                <li>Fan:</li>
-                                <li>Temperature:</li>
-                                <li>Last key pressed:</li>
+                                <li>Switch 1: {{ telemetry[loop.index-1]['switch_01']}}</li>
+                                <li>Switch 2: {{ telemetry[loop.index-1]['switch_02']}}</li>
+                                <li>Switch 3: {{ telemetry[loop.index-1]['switch_03']}}</li>
+                                <li>Switch 4: {{ telemetry[loop.index-1]['switch_04']}}</li>
+                                <li>Temperature: {{ telemetry[loop.index-1]['heater']}}</li>
+                                <li>Last key pressed: {{ telemetry[loop.index-1]['keypad'] }}</li>
+                                <li>Fan direction: {{ telemetry[loop.index-1]['fan'] }}</li>
+                                <li>Time added: {{ telemetry[loop.index-1]['timestamp'] }}</li>
+                                <li>Source MSISDN: +{{ telemetry[loop.index-1]['src_number'] }}</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card card-message" >
-                        <div class="card-body">
-                            <h5 class="card-title">Message ID</h5>
-                            <ul>
-                                <li>Switch 1:</li>
-                                <li>Switch 2:</li>
-                                <li>Switch 3:</li>
-                                <li>Switch 4:</li>
-                                <li>Fan:</li>
-                                <li>Temperature:</li>
-                                <li>Last key pressed:</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card card-message" >
-                        <div class="card-body">
-                            <h5 class="card-title">Message ID</h5>
-                            <ul>
-                                <li>Switch 1:</li>
-                                <li>Switch 2:</li>
-                                <li>Switch 3:</li>
-                                <li>Switch 4:</li>
-                                <li>Fan:</li>
-                                <li>Temperature:</li>
-                                <li>Last key pressed:</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
+                {% endfor %}
+                {% endif %}
                 </div>
             </div>
         </div>
-    </div>
+
+
 
 {% endblock %}

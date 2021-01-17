@@ -1,0 +1,42 @@
+{% extends 'banner.html.twig' %}
+
+{% block content %}
+    <div id="homepage-div" class="background">
+        <h2>{{ page_heading_2 }}</h2>
+
+        <h3>Change your account settings here</h3>
+        <form method={{ method_1 }} action={{ action_1 }}>
+            <label>Email address:</label>
+            <input type="email" value="" disabled />
+            <h4>You cannot change your email address.</h4><br />
+
+            {% if errorMessage %}
+                {% autoescape false %}
+                    {{ '<span class="universal--errorMessage">' ~ errorMessage ~ '</span>' }}
+                {% endautoescape %}
+            {% endif %}
+
+            <label>Current password:</label>
+            <input type="password" name="oldPassword" required/><br />
+
+            <label>New password:</label>
+            <input type="password" name="newPassword" required/><br />
+
+            <label>Repeat new password:</label>
+            <input type="password" name="newPasswordRepeated" required/><br /><br />
+
+            <input class="button-small" type="submit" value="Change Password" />
+            <h4>Once you confirm this action, your password will be changed and you will be asked to log in again using the new password.</h4>
+        </form><br /><br />
+
+        <h4>Delete account</h4>
+        <label>This action cannot be reverted.</label>
+        <form action={{ action_2 }} method={{ method_2 }}>
+            <div>
+                <input type="checkbox" name="deleteAccount" value="true">
+                <label id="subscribeNews">I accept that my account will be deleted and never restored back.</label>
+            </div>
+            <input class="button-small" type="submit" value="Delete account" />
+        </form><br /><br />
+    </div>
+{% endblock %}

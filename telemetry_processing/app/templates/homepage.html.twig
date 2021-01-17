@@ -1,16 +1,13 @@
 {% extends 'banner.html.twig' %}
+
 {% block content %}
-    <div id="page-content-div">
+    <div id="homepage-div" class="background">
         <h2>{{ page_heading_2 }}</h2>
         <br>
         <br>
         <form action="{{ action }}">
-            <input class="button-form btn-download-data" type="submit" value="Download data">
+            <input class="button-large" type="submit" value="Download data">
         </form>
 
-
-
-
-        <p class="curr_page"><a href="{{ landing_page }}">Home</a></p>
     </div>
 {% endblock %}

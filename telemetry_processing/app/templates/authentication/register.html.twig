@@ -1,0 +1,39 @@
+{% extends 'banner.html.twig' %}
+{% block content %}
+    <div class="register-wrapper background">
+        <h3>We're glad that you decided to join us!</h3>
+        <h3>All you need to do now is fill the form below and press the button!</h3>
+
+        <div class="register-form">
+
+        <form action="{{ action_1 }}" class="register--form" method="post">
+
+         <label>Email address:</label><br />
+         <input type="email" name="register--email" class="register--input" value="{{ setEmail ? setEmail : '' }}" required/><br />
+        {% autoescape false %}
+            {{ emailFormatInvalid ? emailFormatInvalid : '' }}
+            {{ emailTooLong ? emailTooLong : '' }}
+            {{ emailRepeated ? emailRepeated : '' }}
+        {% endautoescape %}
+
+        <label>Password:</label><br />
+        <input type="password" name="register--password" class="register--input" value="{{ setPassword ? setPassword : '' }}" required/><br />
+        {% autoescape false %}
+            {{ passwordTooShort ? passwordTooShort : '' }}
+            {{ passwordTooLong ? passwordTooLong : '' }}
+        {% endautoescape %}
+
+        <label>Repeat password:</label><br />
+        <input type="password" name="register--password__repetition" class="register--input" value="{{ setPasswordRepetition ? setPasswordRepetition : '' }}" required/><br />
+        {% autoescape false %}
+            {{ passwordRepetitionNotMatching ? passwordRepetitionNotMatching : '' }}
+        {% endautoescape %}
+            <input type="submit" class="button-small" value="Create an account" />
+        </form>
+        </div>
+
+<div class="session--hub">
+    <a href="{{ landing_page }}" role="button" >Return &larr;</a>
+</div>
+    </div>
+{% endblock %}
